@@ -76,7 +76,7 @@ def shape(r):
     For purposes of "lining up", assume r is a single digit.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     ###########################################################################
@@ -88,6 +88,17 @@ def shape(r):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  15 minutes.
     # -------------------------------------------------------------------------
+    for j in range(r):
+        for t in range(j):
+            print(' ', end='')
+        for k in range(r-j):
+            print('+', end='')
+        print('!', end='')
+        for q in range(r-j, 0, -1):
+            print(q, end='')
+        for e in range(j):
+            print('-', end='')
+        print('')
 
 
 # -----------------------------------------------------------------------------
