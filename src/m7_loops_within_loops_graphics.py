@@ -195,7 +195,7 @@ def many_hourglasses(window, square, m, colors):
     point = square.center
     radius = square.length_of_each_side/2
     x1 = square.center.x - radius
-    y_change = radius
+    y_change = radius - (3**.5)*radius
     for j in range(m):
         q = j
         while True:
