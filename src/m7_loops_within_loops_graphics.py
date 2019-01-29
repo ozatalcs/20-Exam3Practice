@@ -104,15 +104,16 @@ def hourglass(window, n, point, radius, color):
     # -------------------------------------------------------------------------
     for j in range(n):
         for k in range(j+1):
-            circle = rg.Circle(rg.Point(point.x - radius*j + 2*radius*k, point.y - 3**.5 * radius * j), radius)
-            circle.fill_color = color
-            line = rg.Line(rg.Point(circle.center.x - radius,circle.center.y), rg.Point(circle.center.x + radius, circle.center.y))
-            line.attach_to(window)
-            circle.attach_to(window)
-            circle = rg.Circle(rg.Point(point.x + radius*j + 2*radius*k, point.y + 3**.5 * radius * j), radius)
-            circle.fill_color = color
-            line = rg.Line(rg.Point(circle.center.x - radius,circle.center.y), rg.Point(circle.center.x + radius, circle.center.y))
-            line.attach_to(window)
+            circle1 = rg.Circle(rg.Point(point.x - radius*j + 2*radius*k, point.y - 3**.5 * radius * j), radius)
+            circle1.fill_color = color
+            line1 = rg.Line(rg.Point(circle1.center.x - radius, circle1.center.y), rg.Point(circle1.center.x + radius, circle1.center.y))
+            line1.attach_to(window)
+            circle1.attach_to(window)
+            circle2 = rg.Circle(rg.Point(point.x - radius*j + 2*radius*k, point.y + 3**.5 * radius * j), radius)
+            circle2.fill_color = color
+            circle2.attach_to(window)
+            line2 = rg.Line(rg.Point(circle2.center.x - radius,circle2.center.y), rg.Point(circle2.center.x + radius, circle2.center.y))
+            line2.attach_to(window)
     window.render()
 
 def run_test_many_hourglasses():
