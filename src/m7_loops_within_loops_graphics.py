@@ -199,9 +199,13 @@ def many_hourglasses(window, square, m, colors):
         while True:
             if q<len(colors):
                 break
-            q = j - len(colors)
+            q = q - len(colors)
         hourglass(window, j+1, point, radius, colors[q])
         point.x = point.x + radius * (3 + 2 * j)
+        corner_1 = rg.Point(square.center.x - radius*(1-2*j), square.center.y + radius*(1+2*j))
+        corner_2 = rg.Point(square.center.x + radius*(1+2*j), square.center.y - radius*(1+2*j))
+        rectangle = rg.Rectangle(corner_1, corner_2)
+        rectangle.attach_to(window)
 
 
 # -----------------------------------------------------------------------------
