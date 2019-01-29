@@ -90,7 +90,7 @@ def hourglass(window, n, point, radius, color):
     a color that rosegraphics understands.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #       We provided some tests for you (above).
     # -------------------------------------------------------------------------
     ###########################################################################
@@ -106,13 +106,13 @@ def hourglass(window, n, point, radius, color):
         for k in range(j+1):
             circle1 = rg.Circle(rg.Point(point.x - radius*j + 2*radius*k, point.y - 3**.5 * radius * j), radius)
             circle1.fill_color = color
+            circle1.attach_to(window)
             line1 = rg.Line(rg.Point(circle1.center.x - radius, circle1.center.y), rg.Point(circle1.center.x + radius, circle1.center.y))
             line1.attach_to(window)
-            circle1.attach_to(window)
             circle2 = rg.Circle(rg.Point(point.x - radius*j + 2*radius*k, point.y + 3**.5 * radius * j), radius)
             circle2.fill_color = color
             circle2.attach_to(window)
-            line2 = rg.Line(rg.Point(circle2.center.x - radius,circle2.center.y), rg.Point(circle2.center.x + radius, circle2.center.y))
+            line2 = rg.Line(rg.Point(circle2.center.x - radius, circle2.center.y), rg.Point(circle2.center.x + radius, circle2.center.y))
             line2.attach_to(window)
     window.render()
 
@@ -192,6 +192,16 @@ def many_hourglasses(window, square, m, colors):
     #                         a correct "hourglass" function above)
     #    TIME ESTIMATE:  20 minutes (warning: this problem is challenging)
     # -------------------------------------------------------------------------
+    point = square.center
+    radius = square.length_of_each_side/2
+    for j in range(m):
+        q = j
+        while True:
+            if q<len(colors):
+                break
+            q = j - len(colors)
+        hourglass(window, j+1, point, radius, colors[q])
+        point.x = point.x + radius * (3 + 2 * j)
 
 
 # -----------------------------------------------------------------------------
